@@ -533,6 +533,9 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
     type: Schema.Attribute.Relation<'manyToOne', 'api::type.type'>;
     content: Schema.Attribute.RichText;
+    coverMobile: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
