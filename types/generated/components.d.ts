@@ -1,5 +1,45 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface ComponentsTestimonial extends Struct.ComponentSchema {
+  collectionName: 'components_components_testimonials';
+  info: {
+    displayName: 'Testimonial';
+    icon: 'check';
+  };
+  attributes: {
+    title: Schema.Attribute.Text & Schema.Attribute.Required;
+    content: Schema.Attribute.Text;
+    author: Schema.Attribute.String;
+    jobTitle: Schema.Attribute.Text;
+    img: Schema.Attribute.Media<'images' | 'files'> & Schema.Attribute.Required;
+  };
+}
+
+export interface ComponentsTestimonialList extends Struct.ComponentSchema {
+  collectionName: 'components_components_testimonial_lists';
+  info: {
+    displayName: 'TestimonialList';
+    icon: 'grid';
+  };
+  attributes: {
+    Testimonial: Schema.Attribute.Component<'components.testimonial', true>;
+  };
+}
+
+export interface ComponentsBanner extends Struct.ComponentSchema {
+  collectionName: 'components_components_banners';
+  info: {
+    displayName: 'Banner';
+    icon: 'picture';
+  };
+  attributes: {
+    desktop: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    mobile: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface SharedSlider extends Struct.ComponentSchema {
   collectionName: 'components_shared_sliders';
   info: {
@@ -65,6 +105,9 @@ export interface SharedMedia extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'components.testimonial': ComponentsTestimonial;
+      'components.testimonial-list': ComponentsTestimonialList;
+      'components.banner': ComponentsBanner;
       'shared.slider': SharedSlider;
       'shared.seo': SharedSeo;
       'shared.rich-text': SharedRichText;
