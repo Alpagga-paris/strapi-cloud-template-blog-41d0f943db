@@ -101,6 +101,9 @@ export interface ComponentsBanner extends Struct.ComponentSchema {
     mobile: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     link: Schema.Attribute.Text;
+    display: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
   };
 }
 

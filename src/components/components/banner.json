@@ -27,6 +27,11 @@
     },
     "link": {
       "type": "text"
+    },
+    "display": {
+      "type": "boolean",
+      "default": true,
+      "required": true
     }
   }
 }
