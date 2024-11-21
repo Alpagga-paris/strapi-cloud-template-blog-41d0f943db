@@ -21,6 +21,11 @@
       "type": "component",
       "repeatable": false,
       "component": "components.testimonial-list"
+    },
+    "TheyTrustUs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.trusting"
     }
   }
 }

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_components_trustings",
+  "info": {
+    "displayName": "Trusting",
+    "icon": "handHeart"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "files",
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

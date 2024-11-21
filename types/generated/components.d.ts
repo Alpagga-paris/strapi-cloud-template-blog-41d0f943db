@@ -62,6 +62,20 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentsTrusting extends Struct.ComponentSchema {
+  collectionName: 'components_components_trustings';
+  info: {
+    displayName: 'Trusting';
+    icon: 'handHeart';
+  };
+  attributes: {
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    link: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'files' | 'images'> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface ComponentsTestimonial extends Struct.ComponentSchema {
   collectionName: 'components_components_testimonials';
   info: {
@@ -115,6 +129,7 @@ declare module '@strapi/strapi' {
       'shared.rich-text': SharedRichText;
       'shared.quote': SharedQuote;
       'shared.media': SharedMedia;
+      'components.trusting': ComponentsTrusting;
       'components.testimonial': ComponentsTestimonial;
       'components.testimonial-list': ComponentsTestimonialList;
       'components.banner': ComponentsBanner;
