@@ -582,6 +582,35 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDisplayBlackFridayDisplayBlackFriday
+  extends Struct.SingleTypeSchema {
+  collectionName: 'display_black_fridays';
+  info: {
+    singularName: 'display-black-friday';
+    pluralName: 'display-black-fridays';
+    displayName: 'displayBlackFriday';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    displayBlackFriday: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::display-black-friday.display-black-friday'
+    >;
+  };
+}
+
 export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   collectionName: 'homepages';
   info: {
@@ -1021,6 +1050,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::display-black-friday.display-black-friday': ApiDisplayBlackFridayDisplayBlackFriday;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::type.type': ApiTypeType;
       'admin::permission': AdminPermission;
