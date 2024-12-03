@@ -62,6 +62,29 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface LandingComponentsHeroHeader extends Struct.ComponentSchema {
+  collectionName: 'components_landing_components_hero_headers';
+  info: {
+    displayName: 'HeroHeader';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    button: Schema.Attribute.Component<'landing-components.button', false>;
+  };
+}
+
+export interface LandingComponentsButton extends Struct.ComponentSchema {
+  collectionName: 'components_landing_components_buttons';
+  info: {
+    displayName: 'Button';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    outlined: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    link: Schema.Attribute.Text;
+  };
+}
+
 export interface ComponentsTrusting extends Struct.ComponentSchema {
   collectionName: 'components_components_trustings';
   info: {
@@ -129,6 +152,8 @@ declare module '@strapi/strapi' {
       'shared.rich-text': SharedRichText;
       'shared.quote': SharedQuote;
       'shared.media': SharedMedia;
+      'landing-components.hero-header': LandingComponentsHeroHeader;
+      'landing-components.button': LandingComponentsButton;
       'components.trusting': ComponentsTrusting;
       'components.testimonial': ComponentsTestimonial;
       'components.testimonial-list': ComponentsTestimonialList;

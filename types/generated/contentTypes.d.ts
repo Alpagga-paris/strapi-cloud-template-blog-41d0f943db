@@ -644,6 +644,36 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiLandingLanding extends Struct.CollectionTypeSchema {
+  collectionName: 'landings';
+  info: {
+    singularName: 'landing';
+    pluralName: 'landings';
+    displayName: 'Landing';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      ['landing-components.button', 'landing-components.hero-header']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::landing.landing'
+    >;
+  };
+}
+
 export interface ApiTypeType extends Struct.CollectionTypeSchema {
   collectionName: 'types';
   info: {
@@ -1052,6 +1082,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::display-black-friday.display-black-friday': ApiDisplayBlackFridayDisplayBlackFriday;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::landing.landing': ApiLandingLanding;
       'api::type.type': ApiTypeType;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;

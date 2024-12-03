@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_landing_components_buttons",
+  "info": {
+    "displayName": "Button"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "outlined": {
+      "type": "boolean",
+      "default": false
+    },
+    "link": {
+      "type": "text"
+    }
+  }
+}

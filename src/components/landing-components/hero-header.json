@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_landing_components_hero_headers",
+  "info": {
+    "displayName": "HeroHeader"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing-components.button"
+    }
+  }
+}
