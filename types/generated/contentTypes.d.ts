@@ -582,20 +582,19 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiDisplayBlackFridayDisplayBlackFriday
+export interface ApiDisplayPromotionDisplayPromotion
   extends Struct.SingleTypeSchema {
-  collectionName: 'display_black_fridays';
+  collectionName: 'display_promotions';
   info: {
-    singularName: 'display-black-friday';
-    pluralName: 'display-black-fridays';
-    displayName: 'displayBlackFriday';
-    description: '';
+    singularName: 'display-promotion';
+    pluralName: 'display-promotions';
+    displayName: 'displayPromotion';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    displayBlackFriday: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    displayPromotion: Schema.Attribute.Boolean;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -606,7 +605,7 @@ export interface ApiDisplayBlackFridayDisplayBlackFriday
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::display-black-friday.display-black-friday'
+      'api::display-promotion.display-promotion'
     >;
   };
 }
@@ -1080,7 +1079,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
-      'api::display-black-friday.display-black-friday': ApiDisplayBlackFridayDisplayBlackFriday;
+      'api::display-promotion.display-promotion': ApiDisplayPromotionDisplayPromotion;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::landing.landing': ApiLandingLanding;
       'api::type.type': ApiTypeType;

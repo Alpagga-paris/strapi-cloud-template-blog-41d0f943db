@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "display_promotions",
+  "info": {
+    "singularName": "display-promotion",
+    "pluralName": "display-promotions",
+    "displayName": "displayPromotion"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "displayPromotion": {
+      "type": "boolean"
+    }
+  }
+}
