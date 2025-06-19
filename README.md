@@ -1,44 +1,52 @@
 # 🚀 Getting started with Strapi
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+## Start Project 
 
-### `develop`
+Copy .env.example to .env
 
 Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
-
 ```
 npm run develop
-# or
-yarn develop
 ```
+It will run on http://localhost:1337
 
-### `start`
+## Development guidelines 
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
 
-```
-npm run start
-# or
-yarn start
-```
+### ✅ Environment Strategy
 
-### `build`
+**Staging/Production Resource Convention:**
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+- Each Strapi resource MUST have both staging and production versions
+- This enables safe testing in staging before production deployment
+- Create environment-specific endpoint variables to target appropriate resources
 
-```
-npm run build
-# or
-yarn build
-```
+**Local Development Limitations:**
+
+- Local Strapi is NOT linked to production/staging databases, as it use sqlLite in local
+- You must recreate accounts and test resources locally
+- Image URLs point to local filesystem paths (not production-ready)
+
+### ⚠️ Production Safety Rules
+
+**Critical Deployment Guidelines:**
+
+1. **Never rename or remove fields** before deploying corresponding code changes to production
+2. Field modifications will **delete existing content** immediately upon deployment
+3. Always coordinate field schema changes with code deployments
+4. Test all schema changes thoroughly in staging environment first
+
+Resource naming pattern:
+
+- `staging-homepage` → staging environment
+- `production-homepage` → production environment
+
 
 ## ⚙️ Deployment
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+Deployment will happens when you push to main on repository.
 
-```
-yarn strapi deploy
-```
+
 
 ## 📚 Learn more
 
@@ -56,6 +64,3 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 - [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
 - [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
 
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>

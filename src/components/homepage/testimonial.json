@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_homepage_testimonials",
+  "info": {
+    "displayName": "Review",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "review": {
+      "type": "text"
+    }
+  }
+}

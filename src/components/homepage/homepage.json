@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_homepage_homepages",
+  "info": {
+    "displayName": "Homepage",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "bannerList": {
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage.banner-list"
+    },
+    "clientLogoList": {
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage.client-logo-list"
+    },
+    "reviewListAndRate": {
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage.testimonial-list"
+    },
+    "faq": {
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage.faq-list"
+    }
+  }
+}

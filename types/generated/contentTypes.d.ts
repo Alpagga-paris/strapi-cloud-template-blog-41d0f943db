@@ -673,6 +673,63 @@ export interface ApiLandingLanding extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiProductionHomepageProductionHomepage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'production_homepages';
+  info: {
+    singularName: 'production-homepage';
+    pluralName: 'production-homepages';
+    displayName: 'ProductionHomepage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    homepage: Schema.Attribute.Component<'homepage.homepage', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::production-homepage.production-homepage'
+    >;
+  };
+}
+
+export interface ApiStagingHomepageStagingHomepage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'staging_homepages';
+  info: {
+    singularName: 'staging-homepage';
+    pluralName: 'staging-homepages';
+    displayName: 'StagingHomepage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    homepage: Schema.Attribute.Component<'homepage.homepage', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::staging-homepage.staging-homepage'
+    >;
+  };
+}
+
 export interface ApiTypeType extends Struct.CollectionTypeSchema {
   collectionName: 'types';
   info: {
@@ -1082,6 +1139,8 @@ declare module '@strapi/strapi' {
       'api::display-promotion.display-promotion': ApiDisplayPromotionDisplayPromotion;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::landing.landing': ApiLandingLanding;
+      'api::production-homepage.production-homepage': ApiProductionHomepageProductionHomepage;
+      'api::staging-homepage.staging-homepage': ApiStagingHomepageStagingHomepage;
       'api::type.type': ApiTypeType;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
