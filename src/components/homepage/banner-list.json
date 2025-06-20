@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_homepage_banner_lists",
+  "info": {
+    "displayName": "BannerList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "banners": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.banner"
+    }
+  }
+}

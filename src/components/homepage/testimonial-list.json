@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_homepage_testimonial_lists",
+  "info": {
+    "displayName": "ReviewListAndRate",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "reviews": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.testimonial"
+    },
+    "rate": {
+      "type": "decimal"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_homepage_faqs",
+  "info": {
+    "displayName": "SingleQuestion",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "richtext"
+    }
+  }
+}
