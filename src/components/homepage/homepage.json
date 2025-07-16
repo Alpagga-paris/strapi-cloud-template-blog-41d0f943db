@@ -13,7 +13,7 @@
     },
     "clientLogoList": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "homepage.client-logo-list"
     },
     "reviewListAndRate": {

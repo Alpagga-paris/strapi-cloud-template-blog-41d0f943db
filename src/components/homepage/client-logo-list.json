@@ -6,16 +6,21 @@
   },
   "options": {},
   "attributes": {
-    "logos": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
+    "name": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "image": {
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
