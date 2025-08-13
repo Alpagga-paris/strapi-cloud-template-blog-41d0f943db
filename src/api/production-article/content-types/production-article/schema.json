@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "production_articles",
+  "info": {
+    "singularName": "production-article",
+    "pluralName": "production-articles",
+    "displayName": "ProductionArticle"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "shipAndReturnText": {
+      "type": "richtext"
+    }
+  }
+}
