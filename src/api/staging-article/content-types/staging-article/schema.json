@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "staging_articles",
+  "info": {
+    "singularName": "staging-article",
+    "pluralName": "staging-articles",
+    "displayName": "StagingArticle"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "shipAndReturnText": {
+      "type": "richtext"
+    }
+  }
+}

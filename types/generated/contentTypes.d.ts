@@ -673,6 +673,34 @@ export interface ApiLandingLanding extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiProductionArticleProductionArticle
+  extends Struct.SingleTypeSchema {
+  collectionName: 'production_articles';
+  info: {
+    singularName: 'production-article';
+    pluralName: 'production-articles';
+    displayName: 'ProductionArticle';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    shipAndReturnText: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::production-article.production-article'
+    >;
+  };
+}
+
 export interface ApiProductionHomepageProductionHomepage
   extends Struct.SingleTypeSchema {
   collectionName: 'production_homepages';
@@ -697,6 +725,34 @@ export interface ApiProductionHomepageProductionHomepage
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::production-homepage.production-homepage'
+    >;
+  };
+}
+
+export interface ApiStagingArticleStagingArticle
+  extends Struct.SingleTypeSchema {
+  collectionName: 'staging_articles';
+  info: {
+    singularName: 'staging-article';
+    pluralName: 'staging-articles';
+    displayName: 'StagingArticle';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    shipAndReturnText: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::staging-article.staging-article'
     >;
   };
 }
@@ -1139,7 +1195,9 @@ declare module '@strapi/strapi' {
       'api::display-promotion.display-promotion': ApiDisplayPromotionDisplayPromotion;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::landing.landing': ApiLandingLanding;
+      'api::production-article.production-article': ApiProductionArticleProductionArticle;
       'api::production-homepage.production-homepage': ApiProductionHomepageProductionHomepage;
+      'api::staging-article.staging-article': ApiStagingArticleStagingArticle;
       'api::staging-homepage.staging-homepage': ApiStagingHomepageStagingHomepage;
       'api::type.type': ApiTypeType;
       'admin::permission': AdminPermission;
