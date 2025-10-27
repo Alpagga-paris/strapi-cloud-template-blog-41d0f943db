@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "production_display_destockages",
+  "info": {
+    "singularName": "production-display-destockage",
+    "pluralName": "production-display-destockages",
+    "displayName": "ProductionDisplayDestockage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "displayDestockage": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

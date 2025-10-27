@@ -656,6 +656,36 @@ export interface ApiProductionArticleProductionArticle
   };
 }
 
+export interface ApiProductionDisplayDestockageProductionDisplayDestockage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'production_display_destockages';
+  info: {
+    displayName: 'ProductionDisplayDestockage';
+    pluralName: 'production-display-destockages';
+    singularName: 'production-display-destockage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayDestockage: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::production-display-destockage.production-display-destockage'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductionHomepageProductionHomepage
   extends Struct.SingleTypeSchema {
   collectionName: 'production_homepages';
@@ -708,6 +738,36 @@ export interface ApiStagingArticleStagingArticle
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     shipAndReturnText: Schema.Attribute.RichText;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStagingDisplayDestockageStagingDisplayDestockage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'staging_display_destockages';
+  info: {
+    displayName: 'StagingDisplayDestockage';
+    pluralName: 'staging-display-destockages';
+    singularName: 'staging-display-destockage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayDestockage: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::staging-display-destockage.staging-display-destockage'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1290,8 +1350,10 @@ declare module '@strapi/strapi' {
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::landing.landing': ApiLandingLanding;
       'api::production-article.production-article': ApiProductionArticleProductionArticle;
+      'api::production-display-destockage.production-display-destockage': ApiProductionDisplayDestockageProductionDisplayDestockage;
       'api::production-homepage.production-homepage': ApiProductionHomepageProductionHomepage;
       'api::staging-article.staging-article': ApiStagingArticleStagingArticle;
+      'api::staging-display-destockage.staging-display-destockage': ApiStagingDisplayDestockageStagingDisplayDestockage;
       'api::staging-homepage.staging-homepage': ApiStagingHomepageStagingHomepage;
       'api::type.type': ApiTypeType;
       'plugin::content-releases.release': PluginContentReleasesRelease;

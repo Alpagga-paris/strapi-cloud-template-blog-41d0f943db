@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "staging_display_destockages",
+  "info": {
+    "singularName": "staging-display-destockage",
+    "pluralName": "staging-display-destockages",
+    "displayName": "StagingDisplayDestockage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "displayDestockage": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
