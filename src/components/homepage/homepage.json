@@ -8,23 +8,27 @@
   "attributes": {
     "bannerList": {
       "type": "component",
-      "repeatable": false,
-      "component": "homepage.banner-list"
+      "component": "homepage.banner-list",
+      "repeatable": false
     },
     "clientLogoList": {
       "type": "component",
-      "repeatable": true,
-      "component": "homepage.client-logo-list"
+      "component": "homepage.client-logo-list",
+      "repeatable": true
     },
     "reviewListAndRate": {
       "type": "component",
-      "repeatable": false,
-      "component": "homepage.testimonial-list"
+      "component": "homepage.testimonial-list",
+      "repeatable": false
     },
     "faq": {
       "type": "component",
-      "repeatable": false,
-      "component": "homepage.faq-list"
+      "component": "homepage.faq-list",
+      "repeatable": false
+    },
+    "showDestockage": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

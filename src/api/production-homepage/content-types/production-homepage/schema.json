@@ -13,8 +13,8 @@
   "attributes": {
     "homepage": {
       "type": "component",
-      "repeatable": false,
-      "component": "homepage.homepage"
+      "component": "homepage.homepage",
+      "repeatable": false
     }
   }
 }
