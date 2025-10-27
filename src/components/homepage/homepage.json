@@ -25,10 +25,6 @@
       "type": "component",
       "component": "homepage.faq-list",
       "repeatable": false
-    },
-    "showDestockage": {
-      "type": "boolean",
-      "default": true
     }
   }
 }

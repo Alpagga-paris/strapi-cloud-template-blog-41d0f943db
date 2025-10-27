@@ -144,7 +144,6 @@ export interface HomepageHomepage extends Struct.ComponentSchema {
       'homepage.testimonial-list',
       false
     >;
-    showDestockage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
   };
 }
 
