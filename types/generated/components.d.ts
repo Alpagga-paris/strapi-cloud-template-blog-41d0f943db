@@ -80,7 +80,7 @@ export interface BlogReadingTime extends Struct.ComponentSchema {
   };
   attributes: {
     displayFormat: Schema.Attribute.Enumeration<
-      ['minutes_only', 'minutes_read', 'custom']
+      ['minutes_only', 'minutes_read']
     > &
       Schema.Attribute.DefaultTo<'minutes_read'>;
     minutes: Schema.Attribute.Integer &
@@ -95,32 +95,15 @@ export interface BlogReadingTime extends Struct.ComponentSchema {
   };
 }
 
-export interface BlogSubtitle extends Struct.ComponentSchema {
-  collectionName: 'components_blog_subtitles';
-  info: {
-    description: 'Blog subtitle component for secondary headings';
-    displayName: 'Subtitle';
-    icon: 'text-height';
-  };
-  attributes: {
-    level: Schema.Attribute.Enumeration<['h2', 'h3', 'h4', 'h5', 'h6']> &
-      Schema.Attribute.DefaultTo<'h2'>;
-    style: Schema.Attribute.Enumeration<['default', 'emphasized', 'muted']> &
-      Schema.Attribute.DefaultTo<'default'>;
-    text: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 export interface BlogTitle extends Struct.ComponentSchema {
   collectionName: 'components_blog_titles';
   info: {
-    description: 'Blog title component for blog feature';
+    description: 'Blog title component with optional subtitle for blog feature';
     displayName: 'Title';
     icon: 'heading';
   };
   attributes: {
-    level: Schema.Attribute.Enumeration<['h1', 'h2', 'h3', 'h4', 'h5', 'h6']> &
-      Schema.Attribute.DefaultTo<'h1'>;
+    subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -397,7 +380,6 @@ declare module '@strapi/strapi' {
       'blog.hero-banner': BlogHeroBanner;
       'blog.preview-img': BlogPreviewImg;
       'blog.reading-time': BlogReadingTime;
-      'blog.subtitle': BlogSubtitle;
       'blog.title': BlogTitle;
       'components.banner': ComponentsBanner;
       'components.testimonial': ComponentsTestimonial;

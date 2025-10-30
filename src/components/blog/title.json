@@ -3,7 +3,7 @@
   "info": {
     "displayName": "Title",
     "icon": "heading",
-    "description": "Blog title component for blog feature"
+    "description": "Blog title component with optional subtitle for blog feature"
   },
   "options": {},
   "attributes": {
@@ -11,17 +11,9 @@
       "type": "string",
       "required": true
     },
-    "level": {
-      "type": "enumeration",
-      "enum": [
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5",
-        "h6"
-      ],
-      "default": "h1"
+    "subtitle": {
+      "type": "string",
+      "required": false
     }
   }
 }

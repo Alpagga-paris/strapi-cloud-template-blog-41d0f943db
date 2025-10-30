@@ -17,8 +17,7 @@
       "type": "enumeration",
       "enum": [
         "minutes_only",
-        "minutes_read",
-        "custom"
+        "minutes_read"
       ],
       "default": "minutes_read"
     }

@@ -18,11 +18,6 @@
       "repeatable": false,
       "required": true
     },
-    "subtitle": {
-      "type": "component",
-      "component": "blog.subtitle",
-      "repeatable": false
-    },
     "author": {
       "type": "relation",
       "relation": "manyToOne",
@@ -66,9 +61,6 @@
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "articles"
-    },
-    "tags": {
-      "type": "json"
     },
     "seo": {
       "type": "component",

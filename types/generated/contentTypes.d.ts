@@ -463,8 +463,6 @@ export interface ApiArticleBlogArticleBlog extends Struct.CollectionTypeSchema {
     readingTime: Schema.Attribute.Component<'blog.reading-time', false>;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.UID;
-    subtitle: Schema.Attribute.Component<'blog.subtitle', false>;
-    tags: Schema.Attribute.JSON;
     title: Schema.Attribute.Component<'blog.title', false> &
       Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
