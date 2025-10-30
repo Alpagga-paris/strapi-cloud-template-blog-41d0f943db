@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_blog_preview_imgs",
+  "info": {
+    "displayName": "Preview Image",
+    "icon": "picture",
+    "description": "Preview image component for blog content"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "altText": {
+      "type": "string",
+      "required": true
+    },
+    "caption": {
+      "type": "string"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "small",
+        "medium",
+        "large",
+        "full"
+      ],
+      "default": "medium"
+    },
+    "alignment": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "default": "center"
+    },
+    "showCaption": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

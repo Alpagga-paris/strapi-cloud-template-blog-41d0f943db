@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_blog_subtitles",
+  "info": {
+    "displayName": "Subtitle",
+    "icon": "text-height",
+    "description": "Blog subtitle component for secondary headings"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6"
+      ],
+      "default": "h2"
+    },
+    "style": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "emphasized",
+        "muted"
+      ],
+      "default": "default"
+    }
+  }
+}

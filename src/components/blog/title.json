@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_blog_titles",
+  "info": {
+    "displayName": "Title",
+    "icon": "heading",
+    "description": "Blog title component for blog feature"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6"
+      ],
+      "default": "h1"
+    }
+  }
+}
