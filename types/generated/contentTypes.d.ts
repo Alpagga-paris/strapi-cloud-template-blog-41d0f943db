@@ -430,6 +430,49 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiArticleBlogArticleBlog extends Struct.CollectionTypeSchema {
+  collectionName: 'article_blogs';
+  info: {
+    description: 'Blog articles using modular blog components';
+    displayName: 'Article Blog';
+    pluralName: 'article-blogs';
+    singularName: 'article-blog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
+    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
+    content: Schema.Attribute.Component<'blog.content', false> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faqList: Schema.Attribute.Component<'homepage.faq-list', false>;
+    heroBanner: Schema.Attribute.Component<'blog.hero-banner', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::article-blog.article-blog'
+    > &
+      Schema.Attribute.Private;
+    previewImg: Schema.Attribute.Component<'blog.preview-img', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    publishedDate: Schema.Attribute.DateTime;
+    readingTime: Schema.Attribute.Component<'blog.reading-time', false>;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.UID;
+    subtitle: Schema.Attribute.Component<'blog.subtitle', false>;
+    tags: Schema.Attribute.JSON;
+    title: Schema.Attribute.Component<'blog.title', false> &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
@@ -481,7 +524,10 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+    articles: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::article-blog.article-blog'
+    >;
     avatar: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -513,7 +559,10 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+    articles: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::article-blog.article-blog'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -656,6 +705,35 @@ export interface ApiProductionArticleProductionArticle
   };
 }
 
+export interface ApiProductionBlogArticleProductionBlogArticle
+  extends Struct.SingleTypeSchema {
+  collectionName: 'production_blog_articles';
+  info: {
+    displayName: 'ProductionBlogArticles';
+    pluralName: 'production-blog-articles';
+    singularName: 'production-blog-article';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Component<'homepage.banner', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::production-blog-article.production-blog-article'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductionDisplayDestockageProductionDisplayDestockage
   extends Struct.SingleTypeSchema {
   collectionName: 'production_display_destockages';
@@ -738,6 +816,35 @@ export interface ApiStagingArticleStagingArticle
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     shipAndReturnText: Schema.Attribute.RichText;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStagingBlogArticleStagingBlogArticle
+  extends Struct.SingleTypeSchema {
+  collectionName: 'staging_blog_articles';
+  info: {
+    displayName: 'StagingBlogArticles';
+    pluralName: 'staging-blog-articles';
+    singularName: 'staging-blog-article';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Component<'homepage.banner', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::staging-blog-article.staging-blog-article'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1343,6 +1450,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::article-blog.article-blog': ApiArticleBlogArticleBlog;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
@@ -1350,9 +1458,11 @@ declare module '@strapi/strapi' {
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::landing.landing': ApiLandingLanding;
       'api::production-article.production-article': ApiProductionArticleProductionArticle;
+      'api::production-blog-article.production-blog-article': ApiProductionBlogArticleProductionBlogArticle;
       'api::production-display-destockage.production-display-destockage': ApiProductionDisplayDestockageProductionDisplayDestockage;
       'api::production-homepage.production-homepage': ApiProductionHomepageProductionHomepage;
       'api::staging-article.staging-article': ApiStagingArticleStagingArticle;
+      'api::staging-blog-article.staging-blog-article': ApiStagingBlogArticleStagingBlogArticle;
       'api::staging-display-destockage.staging-display-destockage': ApiStagingDisplayDestockageStagingDisplayDestockage;
       'api::staging-homepage.staging-homepage': ApiStagingHomepageStagingHomepage;
       'api::type.type': ApiTypeType;

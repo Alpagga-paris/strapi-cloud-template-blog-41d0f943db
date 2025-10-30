@@ -1,5 +1,130 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlogContent extends Struct.ComponentSchema {
+  collectionName: 'components_blog_contents';
+  info: {
+    description: 'Blog content component with markdown support';
+    displayName: 'Content';
+    icon: 'file-text';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+  };
+}
+
+export interface BlogHeroBanner extends Struct.ComponentSchema {
+  collectionName: 'components_blog_hero_banners';
+  info: {
+    description: 'Hero banner component with meta title and description';
+    displayName: 'Hero Banner';
+    icon: 'landscape';
+  };
+  attributes: {
+    alignment: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
+      Schema.Attribute.DefaultTo<'center'>;
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    height: Schema.Attribute.Enumeration<['small', 'medium', 'large', 'full']> &
+      Schema.Attribute.DefaultTo<'medium'>;
+    metaDescription: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 160;
+      }>;
+    metaTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+    overlayOpacity: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 1;
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0.5>;
+    showBreadcrumb: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    textColor: Schema.Attribute.Enumeration<
+      ['white', 'black', 'primary', 'secondary']
+    > &
+      Schema.Attribute.DefaultTo<'white'>;
+  };
+}
+
+export interface BlogPreviewImg extends Struct.ComponentSchema {
+  collectionName: 'components_blog_preview_imgs';
+  info: {
+    description: 'Preview image component for blog content';
+    displayName: 'Preview Image';
+    icon: 'picture';
+  };
+  attributes: {
+    alignment: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
+      Schema.Attribute.DefaultTo<'center'>;
+    altText: Schema.Attribute.String & Schema.Attribute.Required;
+    caption: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    showCaption: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    size: Schema.Attribute.Enumeration<['small', 'medium', 'large', 'full']> &
+      Schema.Attribute.DefaultTo<'medium'>;
+  };
+}
+
+export interface BlogReadingTime extends Struct.ComponentSchema {
+  collectionName: 'components_blog_reading_times';
+  info: {
+    description: 'Estimated reading time for blog content';
+    displayName: 'Reading Time';
+    icon: 'clock';
+  };
+  attributes: {
+    displayFormat: Schema.Attribute.Enumeration<
+      ['minutes_only', 'minutes_read', 'custom']
+    > &
+      Schema.Attribute.DefaultTo<'minutes_read'>;
+    minutes: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<1>;
+  };
+}
+
+export interface BlogSubtitle extends Struct.ComponentSchema {
+  collectionName: 'components_blog_subtitles';
+  info: {
+    description: 'Blog subtitle component for secondary headings';
+    displayName: 'Subtitle';
+    icon: 'text-height';
+  };
+  attributes: {
+    level: Schema.Attribute.Enumeration<['h2', 'h3', 'h4', 'h5', 'h6']> &
+      Schema.Attribute.DefaultTo<'h2'>;
+    style: Schema.Attribute.Enumeration<['default', 'emphasized', 'muted']> &
+      Schema.Attribute.DefaultTo<'default'>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface BlogTitle extends Struct.ComponentSchema {
+  collectionName: 'components_blog_titles';
+  info: {
+    description: 'Blog title component for blog feature';
+    displayName: 'Title';
+    icon: 'heading';
+  };
+  attributes: {
+    level: Schema.Attribute.Enumeration<['h1', 'h2', 'h3', 'h4', 'h5', 'h6']> &
+      Schema.Attribute.DefaultTo<'h1'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ComponentsBanner extends Struct.ComponentSchema {
   collectionName: 'components_components_banners';
   info: {
@@ -268,6 +393,12 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blog.content': BlogContent;
+      'blog.hero-banner': BlogHeroBanner;
+      'blog.preview-img': BlogPreviewImg;
+      'blog.reading-time': BlogReadingTime;
+      'blog.subtitle': BlogSubtitle;
+      'blog.title': BlogTitle;
       'components.banner': ComponentsBanner;
       'components.testimonial': ComponentsTestimonial;
       'components.testimonial-list': ComponentsTestimonialList;
