@@ -20,11 +20,7 @@ export interface BlogHeroBanner extends Struct.ComponentSchema {
     icon: 'landscape';
   };
   attributes: {
-    alignment: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
-      Schema.Attribute.DefaultTo<'center'>;
     backgroundImage: Schema.Attribute.Media<'images'>;
-    height: Schema.Attribute.Enumeration<['small', 'medium', 'large', 'full']> &
-      Schema.Attribute.DefaultTo<'medium'>;
     metaDescription: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
@@ -35,20 +31,7 @@ export interface BlogHeroBanner extends Struct.ComponentSchema {
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 60;
       }>;
-    overlayOpacity: Schema.Attribute.Decimal &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 1;
-          min: 0;
-        },
-        number
-      > &
-      Schema.Attribute.DefaultTo<0.5>;
     showBreadcrumb: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    textColor: Schema.Attribute.Enumeration<
-      ['white', 'black', 'primary', 'secondary']
-    > &
-      Schema.Attribute.DefaultTo<'white'>;
   };
 }
 
@@ -60,14 +43,8 @@ export interface BlogPreviewImg extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
-    alignment: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
-      Schema.Attribute.DefaultTo<'center'>;
     altText: Schema.Attribute.String & Schema.Attribute.Required;
-    caption: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    showCaption: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    size: Schema.Attribute.Enumeration<['small', 'medium', 'large', 'full']> &
-      Schema.Attribute.DefaultTo<'medium'>;
   };
 }
 
