@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blog_contents",
+  "info": {
+    "displayName": "Content",
+    "icon": "file-text",
+    "description": "Blog content component with markdown support"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

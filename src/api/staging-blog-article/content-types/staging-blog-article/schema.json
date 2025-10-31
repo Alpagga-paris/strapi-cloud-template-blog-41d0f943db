@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "staging_blog_articles",
+  "info": {
+    "singularName": "staging-blog-article",
+    "pluralName": "staging-blog-articles",
+    "displayName": "StagingBlogArticles"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "banner": {
+      "type": "component",
+      "component": "homepage.banner",
+      "repeatable": false
+    }
+  }
+}

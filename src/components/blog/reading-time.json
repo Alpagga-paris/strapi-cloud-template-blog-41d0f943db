@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_blog_reading_times",
+  "info": {
+    "displayName": "Reading Time",
+    "icon": "clock",
+    "description": "Estimated reading time for blog content"
+  },
+  "options": {},
+  "attributes": {
+    "minutes": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "default": 1
+    },
+    "displayFormat": {
+      "type": "enumeration",
+      "enum": [
+        "minutes_only",
+        "minutes_read"
+      ],
+      "default": "minutes_read"
+    }
+  }
+}

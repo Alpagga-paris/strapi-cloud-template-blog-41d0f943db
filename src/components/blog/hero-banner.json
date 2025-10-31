@@ -1,0 +1,68 @@
+{
+  "collectionName": "components_blog_hero_banners",
+  "info": {
+    "displayName": "Hero Banner",
+    "icon": "landscape",
+    "description": "Hero banner component with meta title and description"
+  },
+  "options": {},
+  "attributes": {
+    "metaTitle": {
+      "type": "string",
+      "required": true,
+      "maxLength": 60
+    },
+    "metaDescription": {
+      "type": "text",
+      "required": true,
+      "maxLength": 160
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "overlayOpacity": {
+      "type": "decimal",
+      "min": 0,
+      "max": 1,
+      "default": 0.5
+    },
+    "textColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "primary",
+        "secondary"
+      ],
+      "default": "white"
+    },
+    "alignment": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "default": "center"
+    },
+    "height": {
+      "type": "enumeration",
+      "enum": [
+        "small",
+        "medium",
+        "large",
+        "full"
+      ],
+      "default": "medium"
+    },
+    "showBreadcrumb": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

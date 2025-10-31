@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_blog_titles",
+  "info": {
+    "displayName": "Title",
+    "icon": "heading",
+    "description": "Blog title component with optional subtitle for blog feature"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

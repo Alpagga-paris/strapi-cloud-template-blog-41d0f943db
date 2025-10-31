@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "article_blogs",
+  "info": {
+    "singularName": "article-blog",
+    "pluralName": "article-blogs",
+    "displayName": "Article Blog",
+    "description": "Blog articles using modular blog components"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "blog.title",
+      "repeatable": false,
+      "required": true
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "articles"
+    },
+    "publishedDate": {
+      "type": "datetime"
+    },
+    "readingTime": {
+      "type": "component",
+      "component": "blog.reading-time",
+      "repeatable": false
+    },
+    "heroBanner": {
+      "type": "component",
+      "component": "blog.hero-banner",
+      "repeatable": false
+    },
+    "content": {
+      "type": "component",
+      "component": "blog.content",
+      "repeatable": false,
+      "required": true
+    },
+    "faqList": {
+      "type": "component",
+      "component": "homepage.faq-list",
+      "repeatable": false
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "previewImg": {
+      "type": "component",
+      "component": "blog.preview-img",
+      "repeatable": false
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "articles"
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}

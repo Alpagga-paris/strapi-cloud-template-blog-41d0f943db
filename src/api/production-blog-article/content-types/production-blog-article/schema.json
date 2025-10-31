@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "production_blog_articles",
+  "info": {
+    "singularName": "production-blog-article",
+    "pluralName": "production-blog-articles",
+    "displayName": "ProductionBlogArticles"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "banner": {
+      "type": "component",
+      "component": "homepage.banner",
+      "repeatable": false
+    }
+  }
+}
