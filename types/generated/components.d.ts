@@ -21,16 +21,6 @@ export interface BlogHeroBanner extends Struct.ComponentSchema {
   };
   attributes: {
     backgroundImage: Schema.Attribute.Media<'images'>;
-    metaDescription: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 160;
-      }>;
-    metaTitle: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 60;
-      }>;
     showBreadcrumb: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
   };
 }
@@ -332,8 +322,6 @@ export interface SharedSeo extends Struct.ComponentSchema {
     name: 'Seo';
   };
   attributes: {
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
     shareImage: Schema.Attribute.Media<'images'>;
   };
 }
