@@ -461,7 +461,6 @@ export interface ApiArticleBlogArticleBlog extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     publishedDate: Schema.Attribute.DateTime;
     readingTime: Schema.Attribute.Component<'blog.reading-time', false>;
-    seo: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.UID;
     title: Schema.Attribute.Component<'blog.title', false> &
       Schema.Attribute.Required;
