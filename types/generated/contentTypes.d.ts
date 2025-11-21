@@ -608,40 +608,6 @@ export interface ApiDisplayPromotionDisplayPromotion
   };
 }
 
-export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
-  collectionName: 'homepages';
-  info: {
-    description: '';
-    displayName: 'Homepage';
-    pluralName: 'homepages';
-    singularName: 'homepage';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Banner: Schema.Attribute.Component<'components.banner', false>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::homepage.homepage'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    TestimonialList: Schema.Attribute.Component<
-      'components.testimonial-list',
-      false
-    >;
-    TheyTrustUs: Schema.Attribute.Component<'components.trusting', true>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiLandingLanding extends Struct.CollectionTypeSchema {
   collectionName: 'landings';
   info: {
@@ -1452,7 +1418,6 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::display-promotion.display-promotion': ApiDisplayPromotionDisplayPromotion;
-      'api::homepage.homepage': ApiHomepageHomepage;
       'api::landing.landing': ApiLandingLanding;
       'api::production-article.production-article': ApiProductionArticleProductionArticle;
       'api::production-blog-article.production-blog-article': ApiProductionBlogArticleProductionBlogArticle;
