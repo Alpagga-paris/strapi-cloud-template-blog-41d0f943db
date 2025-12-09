@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "production_faqs",
+  "info": {
+    "singularName": "production-faq",
+    "pluralName": "production-faqs",
+    "displayName": "ProductionFAQ"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FAQCategorie": {
+      "type": "component",
+      "component": "categorie.faq-categorie",
+      "repeatable": true
+    }
+  }
+}

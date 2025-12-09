@@ -75,6 +75,17 @@ export interface BlogTitle extends Struct.ComponentSchema {
   };
 }
 
+export interface CategorieFaqCategorie extends Struct.ComponentSchema {
+  collectionName: 'components_categorie_faq_categories';
+  info: {
+    displayName: 'FAQCategorie';
+  };
+  attributes: {
+    FAQQuestion: Schema.Attribute.Component<'faq-question.faq-question', true>;
+    Nom: Schema.Attribute.String;
+  };
+}
+
 export interface ComponentsBanner extends Struct.ComponentSchema {
   collectionName: 'components_components_banners';
   info: {
@@ -131,6 +142,17 @@ export interface ComponentsTrusting extends Struct.ComponentSchema {
       Schema.Attribute.Required;
     link: Schema.Attribute.Text;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface FaqQuestionFaqQuestion extends Struct.ComponentSchema {
+  collectionName: 'components_faq_question_faq_questions';
+  info: {
+    displayName: 'FAQQuestion';
+  };
+  attributes: {
+    Question: Schema.Attribute.Text;
+    Reponse: Schema.Attribute.Text;
   };
 }
 
@@ -346,10 +368,12 @@ declare module '@strapi/strapi' {
       'blog.preview-img': BlogPreviewImg;
       'blog.reading-time': BlogReadingTime;
       'blog.title': BlogTitle;
+      'categorie.faq-categorie': CategorieFaqCategorie;
       'components.banner': ComponentsBanner;
       'components.testimonial': ComponentsTestimonial;
       'components.testimonial-list': ComponentsTestimonialList;
       'components.trusting': ComponentsTrusting;
+      'faq-question.faq-question': FaqQuestionFaqQuestion;
       'homepage.banner': HomepageBanner;
       'homepage.banner-list': HomepageBannerList;
       'homepage.client-logo-list': HomepageClientLogoList;

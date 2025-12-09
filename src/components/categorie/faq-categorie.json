@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_categorie_faq_categories",
+  "info": {
+    "displayName": "FAQCategorie"
+  },
+  "options": {},
+  "attributes": {
+    "Nom": {
+      "type": "string"
+    },
+    "FAQQuestion": {
+      "type": "component",
+      "component": "faq-question.faq-question",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

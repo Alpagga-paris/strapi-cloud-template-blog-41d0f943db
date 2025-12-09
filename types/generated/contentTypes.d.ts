@@ -727,6 +727,34 @@ export interface ApiProductionDisplayDestockageProductionDisplayDestockage
   };
 }
 
+export interface ApiProductionFaqProductionFaq extends Struct.SingleTypeSchema {
+  collectionName: 'production_faqs';
+  info: {
+    displayName: 'ProductionFAQ';
+    pluralName: 'production-faqs';
+    singularName: 'production-faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    FAQCategorie: Schema.Attribute.Component<'categorie.faq-categorie', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::production-faq.production-faq'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductionHomepageProductionHomepage
   extends Struct.SingleTypeSchema {
   collectionName: 'production_homepages';
@@ -835,6 +863,34 @@ export interface ApiStagingDisplayDestockageStagingDisplayDestockage
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::staging-display-destockage.staging-display-destockage'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStagingFaqStagingFaq extends Struct.SingleTypeSchema {
+  collectionName: 'staging_faqs';
+  info: {
+    displayName: 'StagingFAQ';
+    pluralName: 'staging-faqs';
+    singularName: 'staging-faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    FAQCategorie: Schema.Attribute.Component<'categorie.faq-categorie', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::staging-faq.staging-faq'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -1422,10 +1478,12 @@ declare module '@strapi/strapi' {
       'api::production-article.production-article': ApiProductionArticleProductionArticle;
       'api::production-blog-article.production-blog-article': ApiProductionBlogArticleProductionBlogArticle;
       'api::production-display-destockage.production-display-destockage': ApiProductionDisplayDestockageProductionDisplayDestockage;
+      'api::production-faq.production-faq': ApiProductionFaqProductionFaq;
       'api::production-homepage.production-homepage': ApiProductionHomepageProductionHomepage;
       'api::staging-article.staging-article': ApiStagingArticleStagingArticle;
       'api::staging-blog-article.staging-blog-article': ApiStagingBlogArticleStagingBlogArticle;
       'api::staging-display-destockage.staging-display-destockage': ApiStagingDisplayDestockageStagingDisplayDestockage;
+      'api::staging-faq.staging-faq': ApiStagingFaqStagingFaq;
       'api::staging-homepage.staging-homepage': ApiStagingHomepageStagingHomepage;
       'api::type.type': ApiTypeType;
       'plugin::content-releases.release': PluginContentReleasesRelease;

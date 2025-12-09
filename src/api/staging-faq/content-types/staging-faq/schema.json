@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "staging_faqs",
+  "info": {
+    "singularName": "staging-faq",
+    "pluralName": "staging-faqs",
+    "displayName": "StagingFAQ"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FAQCategorie": {
+      "type": "component",
+      "component": "categorie.faq-categorie",
+      "repeatable": true
+    }
+  }
+}
