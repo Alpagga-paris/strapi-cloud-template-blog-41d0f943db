@@ -152,7 +152,7 @@ export interface FaqQuestionFaqQuestion extends Struct.ComponentSchema {
   };
   attributes: {
     Question: Schema.Attribute.Text;
-    Reponse: Schema.Attribute.Text;
+    Reponse: Schema.Attribute.Blocks & Schema.Attribute.Required;
   };
 }
 

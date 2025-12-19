@@ -9,7 +9,8 @@
       "type": "text"
     },
     "Reponse": {
-      "type": "text"
+      "type": "blocks",
+      "required": true
     }
   },
   "config": {}
