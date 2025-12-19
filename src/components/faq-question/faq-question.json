@@ -8,8 +8,8 @@
     "Question": {
       "type": "text"
     },
-    "answer": {
-      "type": "blocks",
+    "Reponse": {
+      "type": "richtext",
       "required": true
     }
   },
