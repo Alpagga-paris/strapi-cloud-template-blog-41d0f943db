@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_media_achievement_media_achievements",
+  "info": {
+    "displayName": "media-achievement"
+  },
+  "options": {},
+  "attributes": {
+    "youtubeUrl": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

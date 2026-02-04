@@ -784,6 +784,41 @@ export interface ApiProductionHomepageProductionHomepage
   };
 }
 
+export interface ApiStagingAchievementStagingAchievement
+  extends Struct.SingleTypeSchema {
+  collectionName: 'staging_achievements';
+  info: {
+    displayName: 'StagingAchievements';
+    pluralName: 'staging-achievements';
+    singularName: 'staging-achievement';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    achievements: Schema.Attribute.Component<'achievement.achievement', true>;
+    clientsNumber: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::staging-achievement.staging-achievement'
+    > &
+      Schema.Attribute.Private;
+    ouverturesNumber: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiStagingArticleStagingArticle
   extends Struct.SingleTypeSchema {
   collectionName: 'staging_articles';
@@ -1480,6 +1515,7 @@ declare module '@strapi/strapi' {
       'api::production-display-destockage.production-display-destockage': ApiProductionDisplayDestockageProductionDisplayDestockage;
       'api::production-faq.production-faq': ApiProductionFaqProductionFaq;
       'api::production-homepage.production-homepage': ApiProductionHomepageProductionHomepage;
+      'api::staging-achievement.staging-achievement': ApiStagingAchievementStagingAchievement;
       'api::staging-article.staging-article': ApiStagingArticleStagingArticle;
       'api::staging-blog-article.staging-blog-article': ApiStagingBlogArticleStagingBlogArticle;
       'api::staging-display-destockage.staging-display-destockage': ApiStagingDisplayDestockageStagingDisplayDestockage;

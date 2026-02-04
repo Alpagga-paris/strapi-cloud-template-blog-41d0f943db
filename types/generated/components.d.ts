@@ -1,5 +1,30 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AchievementAchievement extends Struct.ComponentSchema {
+  collectionName: 'components_achievement_achievements';
+  info: {
+    displayName: 'achievement';
+  };
+  attributes: {
+    activityType: Schema.Attribute.String & Schema.Attribute.Required;
+    adress: Schema.Attribute.String & Schema.Attribute.Required;
+    banner: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    logo: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    medias: Schema.Attribute.Component<
+      'media-achievement.media-achievement',
+      true
+    >;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    text: Schema.Attribute.RichText;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlogContent extends Struct.ComponentSchema {
   collectionName: 'components_blog_contents';
   info: {
@@ -300,6 +325,18 @@ export interface LandingComponentsHeroHeader extends Struct.ComponentSchema {
   };
 }
 
+export interface MediaAchievementMediaAchievement
+  extends Struct.ComponentSchema {
+  collectionName: 'components_media_achievement_media_achievements';
+  info: {
+    displayName: 'media-achievement';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    youtubeUrl: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -363,6 +400,7 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'achievement.achievement': AchievementAchievement;
       'blog.content': BlogContent;
       'blog.hero-banner': BlogHeroBanner;
       'blog.preview-img': BlogPreviewImg;
@@ -385,6 +423,7 @@ declare module '@strapi/strapi' {
       'homepage.testimonial-list': HomepageTestimonialList;
       'landing-components.button': LandingComponentsButton;
       'landing-components.hero-header': LandingComponentsHeroHeader;
+      'media-achievement.media-achievement': MediaAchievementMediaAchievement;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
