@@ -16,6 +16,8 @@ export interface AchievementAchievement extends Struct.ComponentSchema {
       'media-achievement.media-achievement',
       true
     >;
+    metaDescription: Schema.Attribute.String & Schema.Attribute.Required;
+    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &

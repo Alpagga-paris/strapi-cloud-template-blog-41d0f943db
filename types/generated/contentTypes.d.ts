@@ -639,6 +639,41 @@ export interface ApiLandingLanding extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiProductionAchievementProductionAchievement
+  extends Struct.SingleTypeSchema {
+  collectionName: 'production_achievements';
+  info: {
+    displayName: 'ProductionAchievements';
+    pluralName: 'production-achievements';
+    singularName: 'production-achievement';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    achievements: Schema.Attribute.Component<'achievement.achievement', true>;
+    clientsNumber: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::production-achievement.production-achievement'
+    > &
+      Schema.Attribute.Private;
+    ouverturesNumber: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductionArticleProductionArticle
   extends Struct.SingleTypeSchema {
   collectionName: 'production_articles';
@@ -1510,6 +1545,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::display-promotion.display-promotion': ApiDisplayPromotionDisplayPromotion;
       'api::landing.landing': ApiLandingLanding;
+      'api::production-achievement.production-achievement': ApiProductionAchievementProductionAchievement;
       'api::production-article.production-article': ApiProductionArticleProductionArticle;
       'api::production-blog-article.production-blog-article': ApiProductionBlogArticleProductionBlogArticle;
       'api::production-display-destockage.production-display-destockage': ApiProductionDisplayDestockageProductionDisplayDestockage;

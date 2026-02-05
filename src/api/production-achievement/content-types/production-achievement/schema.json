@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "production_achievements",
+  "info": {
+    "singularName": "production-achievement",
+    "pluralName": "production-achievements",
+    "displayName": "ProductionAchievements"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "clientsNumber": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "ouverturesNumber": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "achievements": {
+      "type": "component",
+      "component": "achievement.achievement",
+      "repeatable": true
+    }
+  }
+}

@@ -51,6 +51,14 @@
       "component": "media-achievement.media-achievement",
       "repeatable": true,
       "required": false
+    },
+    "metaTitle": {
+      "type": "string",
+      "required": true
+    },
+    "metaDescription": {
+      "type": "string",
+      "required": true
     }
   },
   "config": {}
